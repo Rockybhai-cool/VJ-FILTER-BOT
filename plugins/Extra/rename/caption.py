@@ -8,7 +8,7 @@ from info import RENAME_MODE
 
 @Client.on_message(filters.private & filters.command('set_caption'))
 async def add_caption(client, message):
-    if RENAME_MODE == False:
+    if RENAME_MODE == True:
         return 
     caption = await client.ask(message.chat.id, "**__𝙶𝚒𝚟𝚎 𝚖𝚎 𝚊 𝚌𝚊𝚙𝚝𝚒𝚘𝚗 𝚝𝚘 𝚜𝚎𝚝.__\n\nAvailable Filling :-\n📂 File Name: `{filename}`\n\n💾 Size: `{filesize}`\n\n⏰ Duration: `{duration}`**")
     await db.set_caption(message.from_user.id, caption=caption.text)
